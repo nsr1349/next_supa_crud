@@ -9,6 +9,7 @@ export default function TodoForm() {
             <input type="text" name="title" className="bg-blue-100 rounded-sm" />
             <input type="text" name="content" className="bg-blue-100 rounded-sm" />
             <input type="file" name="image" accept="" className="bg-blue-100 rounded-sm" />
+            {/* <input type="file" name="image" id="imageInput" multiple accept="image/*" className="bg-blue-100 rounded-sm" /> */}
             <button className="bg-slate-100">
                 올리기
             </button>

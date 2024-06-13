@@ -59,7 +59,10 @@ import TodoForm from '@/components/TodoForm'
 
 export default async function Home() {
   const supabase = createClient()
-  const { data: notes } = await supabase.from('notes').select()
+  const { data: notes, error } = await supabase
+  .from('notes')
+  .select('*')
+  .order('created_at', { ascending: false })
 
   return (
     <main className="flex flex-col items-center">
@@ -80,6 +83,7 @@ export default async function Home() {
           )
         }
       </ul>
+      <img src="https://eoewvtnebxnlmzrpundc.supabase.co/storage/v1/object/public/note_image/0d16da9f-fab3-4acb-8a9a-e32673590827" alt="" />
     </main>
   );
 }
