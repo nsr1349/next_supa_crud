@@ -56,6 +56,7 @@
 
 import { createClient } from '@/utils/supabase/server'
 import TodoForm from '@/components/TodoForm'
+import Image from 'next/image'
 
 export default async function Home() {
   const supabase = createClient()
@@ -68,13 +69,12 @@ export default async function Home() {
     <main className="flex flex-col items-center">
       <h1 className="text-4xl font-bold my-5">Todo list</h1>
       <TodoForm/>
-      {/*  */}
       <ul>
         {
           notes?.map(({id, title, content, image })=>
             <li className="w-96 box-border rounded-xl overflow-hidden shadow-md m-3" key={id}>
               <div className=""></div>
-              <img className="max-h-96 w-full object-cover" src={image} alt="" />
+              <Image width={1000} height={1000} src={image} alt=""/>
               <div className="p-7 box-border">
                 <h1 className="text-2xl font-bold mb-2">{title}</h1>
                 <p>{content}</p>
